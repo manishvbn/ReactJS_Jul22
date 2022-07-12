@@ -15,6 +15,7 @@ import ComponentOne from '../5_css-modules/comp-one/ComponentOne';
 import ComponentTwo from '../5_css-modules/comp-two/ComponentTwo';
 import ComponentWithState from '../6_comp-state/ComponentWithState';
 import ComponentWithProps from '../7_comp-props/ComponentWithProps';
+import PropTypesRoot from '../8_prop-types/PropTypesComponent';
 
 var data = {
     id: 1,
@@ -36,7 +37,8 @@ const RootComponent = () => {
                 address={data.address}
                 display={() => { alert("From Root"); }} /> */}
 
-            <ComponentWithProps {...data} display={() => { alert("From Root"); }} />
+            {/* <ComponentWithProps {...data} display={() => { alert("From Root"); }} /> */}
+            <PropTypesRoot />
         </div>
     );
 };
