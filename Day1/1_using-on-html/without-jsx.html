@@ -15,12 +15,13 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 
     <script>
-        const MyComponent = React.createElement('button', { onClick: () => { alert('Hello World!'); } }, "Click Me!");
-        // console.log(MyComponent);
+        const MyComponent = React.createElement('div', null,
+            React.createElement('input', { type: "text", placeholder: "Enter Username" }),
+            React.createElement('input', { type: "password", placeholder: "Enter Password" }),
+            React.createElement('button', { onClick: () => { alert('Hello World!'); } }, "Click Me!"));
 
         const app = document.querySelector('#app');
         const root = ReactDOM.createRoot(app);
-        // console.log(root);
         root.render(MyComponent);
     </script>
 </body>

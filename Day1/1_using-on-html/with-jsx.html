@@ -13,14 +13,19 @@
 
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <script>
-        const MyComponent = React.createElement('button', { onClick: () => { alert('Hello World!'); } }, "Click Me!");
-        // console.log(MyComponent);
+    <script type="text/babel">
+        const MyComponent = (
+            <div>
+                <input type="text" placeholder="Enter Username" />
+                <input type="password" placeholder="Enter Password" />
+                <button onClick={() => { alert("Hello World!"); }}>Click Me!</button>
+            </div>
+        );
 
         const app = document.querySelector('#app');
         const root = ReactDOM.createRoot(app);
-        // console.log(root);
         root.render(MyComponent);
     </script>
 </body>
