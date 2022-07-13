@@ -12,4 +12,4 @@ The textbox, + and - button should be disbaled and reset button should be enable
 
 When we click Reset button, everything should be re-initialized.
 
-Completion Time : 11:00 am
+Completion Time : 12:20 pm
