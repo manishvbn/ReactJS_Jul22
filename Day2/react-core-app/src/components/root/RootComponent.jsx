@@ -9,6 +9,8 @@ import CounterAssignment from '../5_counter-assignment/CounterAssignment';
 import ControlledVsUncontrolledComponent from '../6_controlled-vs-uncontrolled/ControlledVsUncontrolledComponent';
 import CalculatorAssignment from '../7_calculator-assignment/CalculatorAssignment';
 import ListRoot from '../8_list/ListComponent';
+import ContextAPIDemo from '../9_context/ContextAPIDemo';
+import SiblingCommunication from '../9_context/SiblingCommunication';
 import ErrorHandler from '../common/ErrorHandler';
 
 const RootComponent = () => {
@@ -22,7 +24,9 @@ const RootComponent = () => {
                 {/* <CounterAssignment /> */}
                 {/* <ControlledVsUncontrolledComponent /> */}
                 {/* <CalculatorAssignment /> */}
-                <ListRoot />
+                {/* <ListRoot /> */}
+                {/* <ContextAPIDemo /> */}
+                <SiblingCommunication />
             </ErrorHandler>
         </div>
     );

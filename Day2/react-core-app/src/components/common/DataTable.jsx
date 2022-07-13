@@ -35,7 +35,7 @@ const Trs = ({ item }) => {
 
 const DataTable = ({ items, children }) => {
     if (items && items.length) {
-        var [item] = items;
+        var [item] = items;             // var item = items[0];
         var ths = <Ths item={item} />;
         var trs = items.map((item, index) => {
             return <Trs key={index} item={item} />;
