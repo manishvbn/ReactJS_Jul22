@@ -7,6 +7,7 @@ import PureImpureComponent from '../3_pure-vs-impure/PureImpureComponent';
 import EventComponent from '../4_synthetic-events/EventComponent';
 import CounterAssignment from '../5_counter-assignment/CounterAssignment';
 import ControlledVsUncontrolledComponent from '../6_controlled-vs-uncontrolled/ControlledVsUncontrolledComponent';
+import CalculatorAssignment from '../7_calculator-assignment/CalculatorAssignment';
 
 const RootComponent = () => {
     return (
@@ -16,7 +17,8 @@ const RootComponent = () => {
             {/* <PureImpureComponent /> */}
             {/* <EventComponent /> */}
             {/* <CounterAssignment /> */}
-            <ControlledVsUncontrolledComponent />
+            {/* <ControlledVsUncontrolledComponent /> */}
+            <CalculatorAssignment />
         </div>
     );
 };
