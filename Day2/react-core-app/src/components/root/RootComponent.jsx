@@ -5,6 +5,7 @@ import ClassVsFunctionalComponent from '../1_class-vs-function/ClassVsFunctional
 import LCDemoComponent from '../2_lifecycle-demo/LCDemoComponent';
 import PureImpureComponent from '../3_pure-vs-impure/PureImpureComponent';
 import EventComponent from '../4_synthetic-events/EventComponent';
+import CounterAssignment from '../5_counter-assignment/CounterAssignment';
 
 const RootComponent = () => {
     return (
@@ -12,7 +13,8 @@ const RootComponent = () => {
             {/* <ClassVsFunctionalComponent /> */}
             {/* <LCDemoComponent /> */}
             {/* <PureImpureComponent /> */}
-            <EventComponent />
+            {/* <EventComponent /> */}
+            <CounterAssignment />
         </div>
     );
 };
