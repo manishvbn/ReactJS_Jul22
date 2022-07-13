@@ -85,12 +85,17 @@ class ListRoot extends Component {
                 {/* <TableComponent items={this.state.employees}>
                     <h1 className="text-info">Employee List</h1>
                 </TableComponent> */}
+
                 <DataTable items={this.state.employees}>
                     <h4 className="text-primary text-uppercase font-weight-bold">Employees Table</h4>
                 </DataTable>
                 <DataTable items={this.state.posts}>
                     <h4 className="text-primary text-uppercase font-weight-bold">Posts Table</h4>
                 </DataTable>
+                
+                {/* <DataTable>
+                    <h4 className="text-primary text-uppercase font-weight-bold">Posts Table</h4>
+                </DataTable> */}
             </div>
         );
     }

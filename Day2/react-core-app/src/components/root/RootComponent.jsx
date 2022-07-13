@@ -9,18 +9,21 @@ import CounterAssignment from '../5_counter-assignment/CounterAssignment';
 import ControlledVsUncontrolledComponent from '../6_controlled-vs-uncontrolled/ControlledVsUncontrolledComponent';
 import CalculatorAssignment from '../7_calculator-assignment/CalculatorAssignment';
 import ListRoot from '../8_list/ListComponent';
+import ErrorHandler from '../common/ErrorHandler';
 
 const RootComponent = () => {
     return (
         <div className='container'>
-            {/* <ClassVsFunctionalComponent /> */}
-            {/* <LCDemoComponent /> */}
-            {/* <PureImpureComponent /> */}
-            {/* <EventComponent /> */}
-            {/* <CounterAssignment /> */}
-            {/* <ControlledVsUncontrolledComponent /> */}
-            {/* <CalculatorAssignment /> */}
-            <ListRoot />
+            <ErrorHandler>
+                {/* <ClassVsFunctionalComponent /> */}
+                {/* <LCDemoComponent /> */}
+                {/* <PureImpureComponent /> */}
+                {/* <EventComponent /> */}
+                {/* <CounterAssignment /> */}
+                {/* <ControlledVsUncontrolledComponent /> */}
+                {/* <CalculatorAssignment /> */}
+                <ListRoot />
+            </ErrorHandler>
         </div>
     );
 };
