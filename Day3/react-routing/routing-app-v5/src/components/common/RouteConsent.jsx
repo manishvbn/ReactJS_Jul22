@@ -43,6 +43,7 @@ class RouteConsent extends Component {
             if (nextLocation) {
                 this.setState({ confirmedNavigation: true }, () => {
                     history.push(nextLocation.pathname);
+                    // history.push(nextLocation.pathname, { state: { data: 10 } });
                 });
             }
         })
