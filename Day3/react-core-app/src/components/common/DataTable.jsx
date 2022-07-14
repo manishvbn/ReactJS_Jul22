@@ -80,7 +80,9 @@ const DataTable = ({ items, children, onSelect, onDelete }) => {
 };
 
 DataTable.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onSelect: PropTypes.func,
+    onDelete: PropTypes.func
 };
 
 export default DataTable;
