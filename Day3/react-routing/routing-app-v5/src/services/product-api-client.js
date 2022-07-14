@@ -7,6 +7,7 @@ const productApiClient = {
                 method: "GET",
                 headers: {
                     "accept": "application/json",
+                    "x-access-token" : "askdjahsjkdhakjsdhkjasdhkjh"
                 }
             };
 
@@ -25,3 +26,5 @@ const productApiClient = {
         });
     }
 };
+
+export default productApiClient;

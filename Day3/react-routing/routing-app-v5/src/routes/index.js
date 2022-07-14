@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { Link, Route, Switch, useLocation } from "react-router-dom";
+import { Link, Redirect, Route, Switch, useLocation } from "react-router-dom";
 
 // Eager Loading
 import HomeComponent from "../components/home/HomeComponent";
 import LoaderAnimation from '../components/common/LoaderAnimation';
+import authenticatorClient from '../services/authenticator-api-client';
 // import AboutComponent from "../components/about/AboutComponent";
 // import AdminComponent from "../components/admin/AdminComponent";
 // import AssignComponent from "../components/assign/AssignmentComponent";
@@ -19,13 +20,23 @@ const ProductsComponent = lazy(() => import("../components/products/ProductsComp
 
 const img404 = require('../assets/http-404.jpg');
 
+const SecuredRoute = ({ component: Component, ...args }) => {
+    return (
+        <Route {...args} render={
+            (props) => authenticatorClient.isAuthenticated
+                ? <Component {...props} />
+                : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+        } />
+    );
+}
+
 export default (
     <Suspense fallback={<LoaderAnimation />}>
         <Switch>
             <Route exact path="/" component={HomeComponent} />
             <Route path="/about" component={AboutComponent} />
             <Route path="/products" component={ProductsComponent} />
-            <Route path="/admin" component={AdminComponent} />
+            <SecuredRoute path="/admin" component={AdminComponent} />
             <Route path="/assign" component={AssignComponent} />
             <Route path="/login" component={LoginComponent} />
             <Route path="*">
