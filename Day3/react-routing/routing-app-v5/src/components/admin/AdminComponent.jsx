@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DataTable from '../common/DataTable';
 
 import productApiClient from '../../services/product-api-client';
+import authenticatorClient from '../../services/authenticator-api-client';
 
 class AdminComponent extends Component {
     constructor(props) {
@@ -31,6 +32,11 @@ class AdminComponent extends Component {
             this.setState({ message: eMsg });
         });
     }
+
+    componentWillUnmount() {
+        authenticatorClient.logout();
+    }
+    
 }
 
 export default AdminComponent;
