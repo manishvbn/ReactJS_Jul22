@@ -4,7 +4,6 @@ import { Link, Route, Switch, useLocation } from "react-router-dom";
 // Eager Loading
 import HomeComponent from "../components/home/HomeComponent";
 import LoaderAnimation from '../components/common/LoaderAnimation';
-import FunctionCounter from '../containers/counter/FunctionCounter';
 
 // Lazy Loading
 const AboutComponent = lazy(() => import("../components/about/AboutComponent"));
@@ -12,6 +11,8 @@ const HOCDemoComponentOne = lazy(() => import('../components/hoc/HOCDemoComponen
 const HOCDemoComponentTwo = lazy(() => import('../components/hoc/HOCDemoComponentTwo'));
 const PortalRoot = lazy(() => import('../components/portals/PortalRoot'));
 const CounterContainer = lazy(() => import('../containers/counter/CounterContainer'));
+const FCounterRoot = lazy(() => import('../components/f-counter/FCounterRoot'));
+const FunctionCounter = lazy(() => import('../containers/counter/FunctionCounter'));
 
 const img404 = require('../assets/http-404.jpg');
 
@@ -24,6 +25,7 @@ export default (
             <Route path="/hoc2" component={HOCDemoComponentTwo} />
             <Route path="/portals" component={PortalRoot} />
             <Route path="/counter" component={CounterContainer} />
+            <Route path="/fcounterroot" component={FCounterRoot} />
             <Route path="/fcounter" component={FunctionCounter} />
             {/* <Route path="/hoc1" render={
                 (props) => (

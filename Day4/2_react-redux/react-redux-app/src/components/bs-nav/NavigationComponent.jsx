@@ -60,15 +60,15 @@ const NavigationComponent = () => {
                                 </NavLink>
                             </li>
                             <li className="nav-item px-3">
-                                <NavLink className="nav-link d-flex flex-column align-items-center" to="/fcounter">
-                                    <i className="bi bi-123"></i>
-                                    <span>FCounter</span>
-                                </NavLink>
-                            </li>
-                            <li className="nav-item px-3">
                                 <NavLink className="nav-link d-flex flex-column align-items-center" to="/fcounterroot">
                                     <i className="bi bi-123"></i>
                                     <span>FCounterRoot</span>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item px-3">
+                                <NavLink className="nav-link d-flex flex-column align-items-center" to="/fcounter">
+                                    <i className="bi bi-123"></i>
+                                    <span>FCounter</span>
                                 </NavLink>
                             </li>
                             <li className="nav-item px-3">

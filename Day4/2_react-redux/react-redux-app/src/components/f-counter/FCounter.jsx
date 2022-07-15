@@ -1,32 +1,38 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-const CounterComponent = (props) => {
+import * as counterActions from '../../actions/counterActions';
+
+const FCounter = () => {
+    const count = useSelector(state => state.counterReducer);
+    const dispatch = useDispatch();
+
     return (
         <>
             <div className="text-center">
-                <h1 className="text-info">Counter Component</h1>
+                <h1 className="text-info">Counter Component (Functional)</h1>
             </div>
             <div className="d-grid gap-2 mx-auto col-6">
                 <h2 className="text-primary text-center">
-                    {props.count}
+                    {count}
                 </h2>
                 <button className="btn btn-primary" onClick={
                     (e) => {
-                        props.inc(2);
+                        dispatch(counterActions.incCounter(2));
                     }
                 }>
                     <span className='fs-4'>+</span>
                 </button>
                 <button className="btn btn-primary" onClick={
                     (e) => {
-                        props.dec(2);
+                        dispatch(counterActions.decCounter(2));
                     }
                 }>
                     <span className='fs-4'>-</span>
                 </button>
                 <button className="btn btn-primary" onClick={
                     (e) => {
-                        props.mul(2);
+                        dispatch(counterActions.mulCounter(2));
                     }
                 }>
                     <span className='fs-4'>*</span>
@@ -36,4 +42,4 @@ const CounterComponent = (props) => {
     );
 };
 
-export default CounterComponent;
+export default FCounter;
