@@ -20,11 +20,14 @@ const FunctionCounter = () => {
                 inc={(by) => dispatch(counterActions.incCounter(by))}
                 dec={(by) => dispatch(counterActions.decCounter(by))}
                 mul={(by) => dispatch(counterActions.mulCounter(by))} /> */}
+            
             <CounterComponent count={count}
                 inc={increment}
                 dec={decrement}
                 mul={multiply} />
+            
             <hr />
+            
             <CounterSiblingComponent count={count} />
         </div>
     );
