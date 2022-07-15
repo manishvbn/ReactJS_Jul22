@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ClockHOC from './ClockHOC';
 import DataHOC from './DataHOC';
 import ErrorHandlerHOC from './ErrorHandlerHOC';
 
@@ -22,4 +23,4 @@ class HOCDemoComponentOne extends Component {
 // const EnhancedComponent = DataHOC(HOCDemoComponentOne);
 // export default EnhancedComponent;
 
-export default ErrorHandlerHOC(DataHOC(HOCDemoComponentOne));
+export default ClockHOC(ErrorHandlerHOC(DataHOC(HOCDemoComponentOne)));

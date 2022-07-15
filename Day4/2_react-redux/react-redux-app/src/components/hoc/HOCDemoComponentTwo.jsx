@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ClockHOC from './ClockHOC';
 import DataHOC from './DataHOC';
 import ErrorHandlerHOC from './ErrorHandlerHOC';
 
@@ -17,4 +18,4 @@ class HOCDemoComponentTwo extends Component {
     }
 }
 
-export default ErrorHandlerHOC(DataHOC(HOCDemoComponentTwo));
+export default ClockHOC(ErrorHandlerHOC(DataHOC(HOCDemoComponentTwo)));
