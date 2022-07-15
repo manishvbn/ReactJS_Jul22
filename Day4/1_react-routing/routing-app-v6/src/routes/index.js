@@ -1,64 +1,79 @@
 import React, { lazy, Suspense } from 'react';
-import { Link, Redirect, Route, Switch, useLocation } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 // Eager Loading
 import HomeComponent from "../components/home/HomeComponent";
 import LoaderAnimation from '../components/common/LoaderAnimation';
 import authenticatorClient from '../services/authenticator-api-client';
-// import AboutComponent from "../components/about/AboutComponent";
-// import AdminComponent from "../components/admin/AdminComponent";
-// import AssignComponent from "../components/assign/AssignmentComponent";
-// import LoginComponent from "../components/login/LoginComponent";
-// import ProductsComponent from "../components/products/ProductsComponent";
+import { ProductDetailsComponent, ProductNotSelectedComponent } from '../components/products/ProductsComponent';
 
 // Lazy Loading
 const AboutComponent = lazy(() => import("../components/about/AboutComponent"));
 const AdminComponent = lazy(() => import("../components/admin/AdminComponent"));
+const ProductsComponent = lazy(() => import("../components/products/ProductsComponent"));
 const AssignComponent = lazy(() => import("../components/assign/AssignmentComponent"));
 const LoginComponent = lazy(() => import("../components/login/LoginComponent"));
-const ProductsComponent = lazy(() => import("../components/products/ProductsComponent"));
 
 const img404 = require('../assets/http-404.jpg');
 
-const SecuredRoute = ({ component: Component, ...args }) => {
-    return (
-        <Route {...args} render={
-            (props) => authenticatorClient.isAuthenticated
-                ? <Component {...props} />
-                : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
-        } />
-    );
+const productsData = [
+    {
+        id: 1,
+        name: "Item One",
+        description:
+            "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+        status: "Available"
+    },
+    {
+        id: 2,
+        name: "Item Two",
+        description: "sunt aut facere ptio reprehenderit",
+        status: "Not Available"
+    },
+    {
+        id: 3,
+        name: "Item Three",
+        description: "provident occaecati excepturi optio reprehenderit",
+        status: "Available"
+    },
+    {
+        id: 4,
+        name: "Item Four",
+        description: "reprehenderit",
+        status: "Not Available"
+    }
+];
+
+const SecuredRoute = ({ children }) => {
+    let location = useLocation();
+
+    if (authenticatorClient.isAuthenticated) {
+        return children;
+    }
+    else {
+        return <Navigate to='/login' state={{ from: location }} />
+    }
 }
 
 export default (
     <Suspense fallback={<LoaderAnimation />}>
-        <Switch>
-            <Route exact path="/" component={HomeComponent} />
-            <Route path="/about" component={AboutComponent} />
-            <Route path="/products" component={ProductsComponent} />
-            <SecuredRoute path="/admin" component={AdminComponent} />
-            <Route path="/assign" component={AssignComponent} />
-            <Route path="/login" component={LoginComponent} />
-            <Route path="*">
-                <NoMatch />
+        <Routes>
+            <Route exact path="/" element={<HomeComponent />} />
+            <Route path="/about" element={<AboutComponent />} />
+            <Route path="/products" element={<ProductsComponent productsData={productsData} />}>
+                <Route path="" element={<ProductNotSelectedComponent />} />
+                <Route path=":productId" element={<ProductDetailsComponent data={productsData} />} />
             </Route>
-            {/* <Route path="*" render={() => {
-            return (
-                <div className="text-center">
-                    <article>
-                        <h1 className="text-danger">No match Found!</h1>
-                        <h4 className="text-danger">Please check your Route Configuration</h4>
-                        <div className="mt-5">
-                            <img src={img404} alt="Not Found" className="rounded" />
-                        </div>
-                        <h2 className="mt-5">
-                            <Link className="nav-link" to="/">Back to Home</Link>
-                        </h2>
-                    </article>
-                </div>
-            );
-        }} /> */}
-        </Switch>
+            <Route path="/admin" element={
+                <SecuredRoute>
+                    <AdminComponent />
+                </SecuredRoute>
+            } />
+
+            <Route path="/assign" element={<AssignComponent />} />
+            <Route path="/login" element={<LoginComponent />} />
+            <Route path="*" element={<NoMatch />} />
+        </Routes>
     </Suspense>
 );
 

@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import authenticatorClient from '../../services/authenticator-api-client';
+
+export const routerHOC = (Component) => {
+    const Wrapper = (props) => {
+        const navigate = useNavigate();
+        const location = useLocation();
+
+        return (
+            <Component navigate={navigate} location={location} {...props} />
+        )
+    }
+
+    return Wrapper;
+}
 
 class LoginComponent extends Component {
     constructor(props) {
@@ -56,19 +69,21 @@ class LoginComponent extends Component {
     login(e) {
         e.preventDefault();
         authenticatorClient.login(this.state.username, this.state.password).then(() => {
-            this.setState({ redirectToReferrer: authenticatorClient.isAuthenticated });
+            // this.setState({ redirectToReferrer: authenticatorClient.isAuthenticated });
+            const { from } = this.props.location.state || { from: { pathname: "/" } };
+            this.props.navigate(from);
         }).catch(eMsg => {
             this.setState({ message: eMsg });
         })
     }
 
     render() {
-        const { from } = this.props.location.state || { from: { pathname: "/" } };
-        const { redirectToReferrer } = this.state;
+        // const { from } = this.props.location.state || { from: { pathname: "/" } };
+        // const { redirectToReferrer } = this.state;
 
-        if (redirectToReferrer) {
-            return <Redirect to={from.pathname} />
-        }
+        // if (redirectToReferrer) {
+        //     return <Navigate to={from.pathname} />
+        // }
 
         return (
             <div className="row">
@@ -110,4 +125,4 @@ class LoginComponent extends Component {
     }
 }
 
-export default LoginComponent;
+export default routerHOC(LoginComponent);

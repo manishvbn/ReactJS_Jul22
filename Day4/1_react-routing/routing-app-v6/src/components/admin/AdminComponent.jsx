@@ -3,7 +3,6 @@ import DataTable from '../common/DataTable';
 
 import productApiClient from '../../services/product-api-client';
 import authenticatorClient from '../../services/authenticator-api-client';
-import RouteConsent from '../common/RouteConsent';
 
 class AdminComponent extends Component {
     constructor(props) {
@@ -22,8 +21,6 @@ class AdminComponent extends Component {
                 <DataTable items={this.state.products}>
                     <h4 className="text-primary text-uppercase font-weight-bold">Products Table</h4>
                 </DataTable>
-
-                <RouteConsent message={'You will be logged out, if you navigate!'} />
             </div>
         );
     }

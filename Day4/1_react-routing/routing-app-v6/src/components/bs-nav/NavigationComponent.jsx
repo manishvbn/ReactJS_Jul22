@@ -24,7 +24,7 @@ const NavigationComponent = () => {
                     <div className="collapse navbar-collapse" id="myNavbar">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item px-3">
-                                <NavLink exact className="nav-link d-flex flex-column align-items-center" to="/">
+                                <NavLink end className="nav-link d-flex flex-column align-items-center" to="/">
                                     <i className="bi bi-house-fill"></i>
                                     <span>Home</span>
                                 </NavLink>
