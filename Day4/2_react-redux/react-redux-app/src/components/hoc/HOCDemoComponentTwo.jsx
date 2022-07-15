@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import DataHOC from './DataHOC';
+import ErrorHandlerHOC from './ErrorHandlerHOC';
 
 class HOCDemoComponentTwo extends Component {
     render() {
+        // throw new Error("Just for Demo");
+        
         return (
             <div className='mt-5'>
                 <h1 className="text-info">Higher Order Component Demo Two</h1>
@@ -14,4 +17,4 @@ class HOCDemoComponentTwo extends Component {
     }
 }
 
-export default DataHOC(HOCDemoComponentTwo);
+export default ErrorHandlerHOC(DataHOC(HOCDemoComponentTwo));

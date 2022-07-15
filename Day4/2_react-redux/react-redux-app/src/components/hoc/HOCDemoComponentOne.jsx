@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DataHOC from './DataHOC';
+import ErrorHandlerHOC from './ErrorHandlerHOC';
 
 class HOCDemoComponentOne extends Component {
     render() {
@@ -21,4 +22,4 @@ class HOCDemoComponentOne extends Component {
 // const EnhancedComponent = DataHOC(HOCDemoComponentOne);
 // export default EnhancedComponent;
 
-export default DataHOC(HOCDemoComponentOne);
+export default ErrorHandlerHOC(DataHOC(HOCDemoComponentOne));
