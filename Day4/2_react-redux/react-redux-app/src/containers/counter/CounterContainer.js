@@ -48,7 +48,8 @@ class CounterContainer extends Component {
             <div>
                 <CounterComponent count={this.props.count}
                     inc={this.props.incCounter}
-                    dec={this.props.decCounter} />
+                    dec={this.props.decCounter}
+                    mul={this.props.mulCounter} />
                 <hr />
                 <CounterSiblingComponent {...this.props} />
             </div>

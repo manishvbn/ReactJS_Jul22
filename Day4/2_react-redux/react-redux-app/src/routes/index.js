@@ -4,6 +4,7 @@ import { Link, Route, Switch, useLocation } from "react-router-dom";
 // Eager Loading
 import HomeComponent from "../components/home/HomeComponent";
 import LoaderAnimation from '../components/common/LoaderAnimation';
+import FunctionCounter from '../containers/counter/FunctionCounter';
 
 // Lazy Loading
 const AboutComponent = lazy(() => import("../components/about/AboutComponent"));
@@ -23,6 +24,7 @@ export default (
             <Route path="/hoc2" component={HOCDemoComponentTwo} />
             <Route path="/portals" component={PortalRoot} />
             <Route path="/counter" component={CounterContainer} />
+            <Route path="/fcounter" component={FunctionCounter} />
             {/* <Route path="/hoc1" render={
                 (props) => (
                     <HOCDemoComponentOne data={"Data from the Router"} {...props} />
