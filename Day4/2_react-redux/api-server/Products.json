@@ -11,18 +11,6 @@
       "name": "Item Two",
       "description": "Super Widget",
       "status": "Not Available"
-    },
-    {
-      "id": 3,
-      "name": "Item Three",
-      "description": "Widget",
-      "status": "Available"
-    },
-    {
-      "id": 4,
-      "name": "Item Four",
-      "description": "Super Gadget",
-      "status": "Available"
     }
   ]
 }
