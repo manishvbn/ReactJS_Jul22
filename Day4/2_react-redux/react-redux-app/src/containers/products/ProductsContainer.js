@@ -5,6 +5,7 @@ import LoaderAnimation from '../../components/common/LoaderAnimation';
 import ProductListComponent from '../../components/products/ProductListComponent';
 
 import * as productActions from '../../actions/productActions';
+import AddProductButton from '../../components/products/AddProductButton';
 
 class ProductsContainer extends Component {
     render() {
@@ -13,6 +14,9 @@ class ProductsContainer extends Component {
                 {
                     this.props.flag
                         ? <>
+                            <div className='mt-3 mb-3'>
+                                <AddProductButton />
+                            </div>
                             <ProductListComponent products={this.props.products} />
                         </>
                         : <LoaderAnimation />

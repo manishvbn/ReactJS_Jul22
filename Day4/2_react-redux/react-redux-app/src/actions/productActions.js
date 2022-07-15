@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 
 import productAPIClient from '../services/product-api-client';
+import history from '../utilities/history';
 
 function loadProductsRequested(msg) {
     return {
@@ -33,6 +34,50 @@ export function loadProducts() {
             }, 5000);
         }).catch(eMsg => {
             dispatch(loadProductsFailed(eMsg));
+        });
+    }
+}
+
+// ----------------------------------------------------------- INSERT
+function insertProductSuccess(product, msg) {
+    return {
+        type: actionTypes.INSERT_PRODUCT_SUCCESS,
+        payload: { data: product, message: msg, flag: true }
+    };
+}
+
+export function insertProduct(product) {
+    return function (dispatch) {
+        // TO DO - Insert Requested
+
+        productAPIClient.insertProduct(product).then(insertedProduct => {
+            dispatch(insertProductSuccess(insertedProduct, "Product Inserted Successfully..."));
+            history.push('/products');
+        }).catch(eMsg => {
+            console.error(eMsg)
+            // TO DO - Insert Failed
+        });
+    }
+}
+
+// ----------------------------------------------------------- UPDATE
+function updateProductSuccess(product, msg) {
+    return {
+        type: actionTypes.UPDATE_PRODUCT_SUCCESS,
+        payload: { data: product, message: msg, flag: true }
+    };
+}
+
+export function updateProduct(product) {
+    return function (dispatch) {
+        // TO DO - Update Requested
+
+        productAPIClient.updateProduct(product).then(updatedProduct => {
+            dispatch(updateProductSuccess(updatedProduct, "Product Updated Successfully..."));
+            history.push('/products');
+        }).catch(eMsg => {
+            console.error(eMsg)
+            // TO DO - Update Failed
         });
     }
 }
